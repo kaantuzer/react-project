@@ -1,8 +1,8 @@
-import './HomeAlti.css';
+import './Advertise.css';
 import resim1 from '../../assets/images/cta/kart-1.png'
 import resim2 from '../../assets/images/cta/kart-2.png'
 import resim3 from '../../assets/images/cta/kart-3.png'
-function HomeAlti() {
+function Advertise() {
     return (
         <div className="bej">
             <div className="home2">
@@ -39,4 +39,4 @@ function HomeAlti() {
         </div>
     );
 }
-export default HomeAlti;
+export default Advertise;

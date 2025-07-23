@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Main from './components/MainScreen'
-import Siparis from './components/Siparis'
+import Order from './components/Order.jsx'
 import axios from 'axios'
 import {
   BrowserRouter as Router,
@@ -9,9 +9,10 @@ import {
   useHistory,
 } from 'react-router-dom';
 import Success from './components/Success';
-import './components/Siparis.css'
+import './components/Order.css'
 import './index.css'
-import Header from './components/HeaderOrder.jsx';
+import OrderHeader from './components/SiparisComponents/OrderHeader.jsx';
+import Footer from './components/Footer.jsx';
 
 
 
@@ -30,9 +31,10 @@ function App() {
   const [total, setTotal] = useState(0);
   const [selectedTotal, setSelectedTotal] = useState(0);
   const [responseData, setResponseData] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   function goToSiparis() {
-    history.push('/siparis');
+    history.push('/Order');
   }
   function goToSuccess() {
     history.push('/success');
@@ -86,18 +88,21 @@ function App() {
           <Main goToSiparis={goToSiparis} />
 
         </Route>
+
         {/* Route 2 */}
-        <Route path="/siparis" >
-          <Header />
-          <Siparis formData={formData} setFormData={setFormData} total={total} setTotal={setTotal} selectedTotal={selectedTotal} setSelectedTotal={setSelectedTotal} handleSubmit={handleSubmit} />
+        <Route path="/Order" >
+          <OrderHeader />
+          <Order formData={formData} setFormData={setFormData} total={total} setTotal={setTotal} selectedTotal={selectedTotal} setSelectedTotal={setSelectedTotal} handleSubmit={handleSubmit} setSelectedProduct={setSelectedProduct} selectedProduct={selectedProduct} />
         </Route>
+
         {/* Route 3 */}
         <Route path="/success" >
-          <Success formData={formData} total={total} selectedTotal={selectedTotal} responseData={responseData} />
+          <Success formData={formData} total={total} selectedTotal={selectedTotal} responseData={responseData} selectedProduct={selectedProduct} />
         </Route>
 
 
       </Switch>
+      <Footer />
     </>
 
   )

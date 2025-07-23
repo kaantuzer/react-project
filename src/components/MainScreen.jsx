@@ -1,22 +1,21 @@
 import './MainScreen.css';
-import Home2 from './it2/home2';
+import Nav from './it2/Nav.jsx';
+import Advertise from './it2/Advertise.jsx';
+import Products from './it2/Products.jsx';
 import reactLogo from '../assets/logo.svg';
-import Logo from './Logo.jsx';
-import HomeAlti from './it2/HomeAlti';
-import Onemli from './it2/Onemli.jsx';
 function Main(props) {
   const { goToSiparis } = props;
 
   return (
     <>
       <main className="main">
-        <Logo />
+        <img src={reactLogo} className="logo" alt="High logo" />
         <h1 className='title'>KOD ACIKTIRIR<br />PIZZA, DOYURUR</h1>
         <button className='aciktimButton' onClick={goToSiparis}>ACIKTIM</button>
       </main>
-      <Home2 />
-      <HomeAlti />
-      <Onemli />
+      <Nav />
+      <Advertise />
+      <Products />
     </>
 
   );

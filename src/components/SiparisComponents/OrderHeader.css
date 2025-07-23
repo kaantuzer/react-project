@@ -6,3 +6,9 @@
   background-color: #CE2829;
   padding: 2.1rem;
 }
+@media (max-width: 600px) {
+  .logo {
+    width: 80%;
+    height: auto;
+  }
+}

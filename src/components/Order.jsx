@@ -1,4 +1,4 @@
-import './Siparis.css';
+import './Order.css';
 import { useEffect } from 'react';
 import PizzaHeader from './SiparisComponents/PizzaHeader';
 import Size from './SiparisComponents/SizeChoices';
@@ -7,11 +7,14 @@ import Thickness from './SiparisComponents/ThicknessChoices';
 import OrderNote from './SiparisComponents/OrderNote';
 import QuantityOrder from './SiparisComponents/QuantityOrder';
 import Summary from './SiparisComponents/Summary';
+import { useLocation, useHistory } from 'react-router-dom';
 
 
 
-function Siparis({ formData, setFormData, total, setTotal, selectedTotal, setSelectedTotal, handleSubmit }) {
+function Order({ formData, setFormData, total, setTotal, selectedTotal, setSelectedTotal, handleSubmit, setSelectedProduct, selectedProduct }) {
 
+  const location = useLocation();
+  setSelectedProduct(location.state?.urun); // Get the selected product from the state passed
 
   const pizzaPrice = 80.50; // Pizza fiyatı
 
@@ -69,7 +72,7 @@ function Siparis({ formData, setFormData, total, setTotal, selectedTotal, setSel
 
   return (
     <div className='container-siparis'>
-      <PizzaHeader />
+      <PizzaHeader selectedProduct={selectedProduct} />
 
       <form onSubmit={handleSubmit}>
 
@@ -103,4 +106,4 @@ function Siparis({ formData, setFormData, total, setTotal, selectedTotal, setSel
 
 }
 
-export default Siparis;
+export default Order;

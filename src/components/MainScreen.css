@@ -46,3 +46,9 @@
   text-align: center;
   padding: 2rem;
 }
+@media (max-width: 600px) {
+  .logo {
+    width: 80%;
+    height: auto;
+  }
+}

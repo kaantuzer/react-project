@@ -1,11 +1,12 @@
-import './home2.css'
+import './Nav.css'
 import icon1 from '../../assets/images/icons/1.svg';
 import icon2 from '../../assets/images/icons/2.svg';
 import icon3 from '../../assets/images/icons/3.svg';
 import icon4 from '../../assets/images/icons/4.svg';
 import icon5 from '../../assets/images/icons/5.svg';
 import icon6 from '../../assets/images/icons/6.svg';
-function Home2() {
+
+function Nav() {
     return (
         <div className="home2">
             <nav className="nav">
@@ -34,9 +35,10 @@ function Home2() {
                     <p href="/">Diğer</p>
                 </div>
 
+
             </nav>
         </div>
     )
 }
 
-export default Home2;
+export default Nav;

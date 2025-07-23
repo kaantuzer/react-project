@@ -95,7 +95,6 @@ export const CrustThickness = [
   { id: 'citr', value: 'Çıtır' }
   
 
-
 ];
 
 export const Sizes = [

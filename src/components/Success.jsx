@@ -3,14 +3,14 @@ import Summary from './SiparisComponents/Summary';
 import { Pizzas } from '../sahteVeri';
 
 function Success(props) {
-  const { total, selectedTotal, responseData } = props;
+  const { total, selectedTotal, responseData, selectedProduct } = props;
   return (
     <div className="success maine">
       <p className='success-message-up'>Lezzetin Yolda</p>
       <p className='success-message'>Sipariş Alındı</p>
       <hr className='hr' />
       {/* <Summary formData={formData} total={total} selectedTotal={selectedTotal} /> */}
-      <h2>{Pizzas.klasik.isim}</h2>
+      <h2>{selectedProduct.ad}</h2>
 
       <div className="summary-order">
 
