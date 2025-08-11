@@ -9,6 +9,7 @@
     font-weight: 400;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
+    color: #000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -33,6 +34,9 @@
   }
   .ad-img {
     @apply w-full h-auto rounded-lg;
+  }
+  .baslik {
+    @apply font-semibold text-lg py-5;
   }
 }
 

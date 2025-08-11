@@ -9,7 +9,6 @@ import {
   useHistory,
 } from 'react-router-dom';
 import Success from './components/Success';
-import './components/Order.css'
 import './index.css'
 import OrderHeader from './components/SiparisComponents/OrderHeader.jsx';
 import Footer from './components/Footer.jsx';

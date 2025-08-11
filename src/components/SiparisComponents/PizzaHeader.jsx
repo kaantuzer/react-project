@@ -3,24 +3,24 @@ function PizzaHeader({ selectedProduct }) {
 
     return (
         <>
-            <div className="pizza-header">
-                <h1>{selectedProduct ? selectedProduct.ad : Pizzas.klasik.isim}</h1>
+            <div className="font-bold text-3xl py-2">
+                <h1>{selectedProduct ? selectedProduct.name : Pizzas.klasik.isim}</h1>
             </div>
 
-            <div className="pizza-things">
+            <div className="flex items-center justify-between my-4">
 
-                <p className='price'>{selectedProduct ? selectedProduct.price : Pizzas.klasik.fiyat}₺</p>
+                <p className='font-semibold text-2xl basis-3/4'>{selectedProduct ? selectedProduct.price : Pizzas.klasik.fiyat}₺</p>
 
-                <div className="others">
+                <div className="flex basis-1/4 justify-between">
 
                     <p className='puan'>{selectedProduct ? selectedProduct.rate : Pizzas.klasik.puan}</p>
                     <p className='yorum'>{selectedProduct ? selectedProduct.comment : Pizzas.klasik.yorum}</p>
                 </div>
             </div>
 
-            <div className="desc-pizza">
+            <div>
 
-                <p>{Pizzas.klasik.description}</p>
+                <p className='text-gray-500'>{Pizzas.klasik.description}</p>
             </div>
         </>
     )

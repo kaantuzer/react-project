@@ -1,4 +1,4 @@
-import './Order.css';
+
 import { useEffect } from 'react';
 import PizzaHeader from './SiparisComponents/PizzaHeader';
 import Toppings from './SiparisComponents/ToppingsChoices';
@@ -65,12 +65,12 @@ function Order({ total, setTotal, selectedTotal, setSelectedTotal, setSelectedPr
 
   return (
 
-    <div className='container-siparis'>
+    <div className='max-w-[700px] mx-auto p-6 '>
       <PizzaHeader selectedProduct={selectedProduct} />
 
       <form onSubmit={handleSubmit(submitHandle)} className="order-form">
 
-        <div className="choices">
+        <div className="flex flex-col text-center items-center py-5 mb-5 lg:py-0 lg:mb-0 lg:flex-row lg:justify-between items-start">
 
           <SizeChoices register={register} errors={errors} />
           <Thickness register={register} errors={errors} />
@@ -82,19 +82,19 @@ function Order({ total, setTotal, selectedTotal, setSelectedTotal, setSelectedPr
 
         <hr></hr>
 
-        <div className="order">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-4 my-6">
 
-          <div className="quantity-order">
-            <button type="button" onClick={decrease} >-</button>
-            <span>{quantity}</span>
-            <button type="button" onClick={increase} >+</button>
+          <div className="self-auto lg:self-start border">
+            <button className='bg-projectRed p-3' type="button" onClick={decrease} >-</button>
+            <span className='p-5 font-semibold'>{quantity}</span>
+            <button className='bg-projectRed p-3' type="button" onClick={increase} >+</button>
           </div>
 
-          <div className="summary-side">
+          <div className="border w-[90%] lg:w-[60%] ">
 
             <Summary selectedTotal={selectedTotal} total={total} />
-            <button className='order-button' type='submit'>Sipariş Ver</button>
-            <p>{JSON.stringify(formDataa)}</p>
+            <button className='w-full bg-projectRed p-3 text-white font-bold rounded-lg' type='submit'>Sipariş Ver</button>
+
 
           </div>
 

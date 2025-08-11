@@ -1,18 +1,18 @@
 function Summary(props) {
     const { selectedTotal, total } = props;
     return (
-        <div className="summary">
+        <div className="flex flex-col gap-4 p-10">
 
-            <h3>Sipariş Toplamı</h3>
+            <h3 className="font-semibold">Sipariş Toplamı</h3>
 
-            <div className="choices-end">
-                <h4>Seçimler</h4>
-                <p>{selectedTotal} TL</p>
+            <div className="flex justify-between">
+                <h4 className="font-bold">Seçimler</h4>
+                <p className="font-bold">{selectedTotal} TL</p>
             </div>
 
-            <div className="total-price">
-                <h4 >Toplam</h4>
-                <p >{total} TL</p>
+            <div className="flex justify-between">
+                <h4 className="font-bold text-projectRed">Toplam</h4>
+                <p className="font-bold text-projectRed">{total} TL</p>
             </div>
         </div>
     )

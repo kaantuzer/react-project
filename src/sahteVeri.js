@@ -99,7 +99,7 @@ export const CrustThickness = [
 ];
 
 export const Sizes = [
-  { id: "1", value: "Küçük" },
-  { id: "2", value: "Orta" },
-  { id: "3", value: "Büyük" },
+  { id: "1", value: "Küçük", checkbox: "S" },
+  { id: "2", value: "Orta", checkbox: "M" },
+  { id: "3", value: "Büyük", checkbox: "L" },
 ];
