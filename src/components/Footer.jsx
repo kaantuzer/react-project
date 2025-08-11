@@ -1,4 +1,3 @@
-import './Footer.css';
 import logo from '../assets/images/footer/logo-footer.svg';
 import icon1 from '../assets/images/footer/icons/icon-1.png';
 import icon2 from '../assets/images/footer/icons/icon-2.png';
@@ -12,45 +11,45 @@ import insta6 from '../assets/images/footer/insta/li-5.png'
 import icon from '../assets/images/footer/icons/icon-1.png';
 function Footer() {
     return (
-        <div className="footer">
+        <div className="bg-darkGray flex flex-col lg:flex-row justify-between p-10 pt-20 ">
 
-            <div className="home2">
+            <div className="container-pizza">
 
-                <footer>
-                    <div className="footer1-2">
-                        <div className="footer1">
+                <footer className='flex flex-col lg:flex-row justify-between '>
+                    <div className="flex flex-col items-center lg:flex-row justify-between items-start lg:w-[45%] gap-6">
+                        <div className="flex flex-col gap-10 ">
                             <img src={logo} alt="logo" />
-                            <div className="location">
+                            <div className="flex gap-3 items-center">
                                 <img src={icon1} alt="icon1" />
-                                <p>123 Pizza Street, Food City</p>
+                                <p className='text-white font-semibold'>123 Pizza Street, Food City</p>
                             </div>
-                            <div className="email">
+                            <div className="flex gap-3 items-center">
                                 <img src={icon2} alt="icon2" />
-                                <p>info@pizzashop.com</p>
+                                <p className='text-white font-semibold'>info@pizzashop.com</p>
                             </div>
-                            <div className="telephone">
+                            <div className="flex gap-3 items-center">
                                 <img src={icon3} alt="icon3" />
-                                <p>(123) 456-7890</p>
+                                <p className='text-white font-semibold'>(123) 456-7890</p>
                             </div>
                         </div>
-                        <div className="footer2">
-                            <div className="title-footer2">
-                                <h2>Sıcacık Menüler</h2>
+                        <div className="p-5">
+                            <div className="">
+                                <h2 className='text-white text-4xl font-semibold mb-8'>Sıcacık Menüler</h2>
                             </div>
-                            <div className="content-footer2">
+                            <div className="flex flex-col gap-3">
 
-                                <p>Terminal Pizza</p>
-                                <p>5 Kişilik Hackhatlon Pizza</p>
-                                <p>UseEffect Tavuklu Pizza</p>
-                                <p>Beyaz Console Pizza</p>
-                                <p>Testler Geçti Mutlu Burger</p>
-                                <p>Position Absolute Acı Burger</p>
+                                <p className='text-white font-normal text-xl'>Terminal Pizza</p>
+                                <p className='text-white font-normal text-xl'>5 Kişilik Hackhatlon Pizza</p>
+                                <p className='text-white font-normal text-xl'>UseEffect Tavuklu Pizza</p>
+                                <p className='text-white font-normal text-xl'>Beyaz Console Pizza</p>
+                                <p className='text-white font-normal text-xl'>Testler Geçti Mutlu Burger</p>
+                                <p className='text-white font-normal text-xl'>Position Absolute Acı Burger</p>
                             </div>
                         </div>
                     </div>
-                    <div className="footer3">
-                        <h2>Instagram</h2>
-                        <div className="fotolar">
+                    <div className="p-3">
+                        <h2 className="text-white text-3xl font-bold mb-4">Instagram</h2>
+                        <div className="grid grid-cols-3 gap-4">
                             <img src={insta1} alt="Instagram 1" />
                             <img src={insta2} alt="Instagram 2" />
                             <img src={insta3} alt="Instagram 3" />
@@ -62,11 +61,11 @@ function Footer() {
 
                 </footer>
 
-                <hr style={{ marginTop: '3rem', height: '2px', backgroundColor: '#ccc', border: 'none' }} />
+                <hr className='my-5 mt-10' />
 
-                <div className="footer-bottom">
-                    <p className='footer-rights'>© 2023 Pizza Shop. All rights reserved.</p>
-                    <img src={icon} alt="icon" />
+                <div className="flex justify-between">
+                    <p className='text-white'>© 2023 Pizza Shop. All rights reserved.</p>
+                    <img className='w-10 h-10 lg:w-auto lg:h-auto' src={icon} alt="icon" />
                 </div>
 
             </div>

@@ -1,105 +1,105 @@
 import './Order.css';
 import { useEffect } from 'react';
 import PizzaHeader from './SiparisComponents/PizzaHeader';
-import Size from './SiparisComponents/SizeChoices';
 import Toppings from './SiparisComponents/ToppingsChoices';
 import Thickness from './SiparisComponents/ThicknessChoices';
 import OrderNote from './SiparisComponents/OrderNote';
-import QuantityOrder from './SiparisComponents/QuantityOrder';
 import Summary from './SiparisComponents/Summary';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import SizeChoices from './SiparisComponents/SizeChoices';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
-function Order({ formData, setFormData, total, setTotal, selectedTotal, setSelectedTotal, handleSubmit, setSelectedProduct, selectedProduct }) {
+
+function Order({ total, setTotal, selectedTotal, setSelectedTotal, setSelectedProduct, selectedProduct, submitHandle }) {
 
   const location = useLocation();
   setSelectedProduct(location.state?.urun); // Get the selected product from the state passed
 
+  const defaultValues = {
+    size: 'Küçük',
+    crustThickness: 'İnce',
+    malzeme: [],
+    orderNote: '',
+    quantity: 1,
+  };
+
+  //UseForm
+  const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm({ defaultValues: defaultValues, mode: 'onChange' });
+
+  const formDataa = watch();
+  const toppings = watch("malzeme")
+  const quantity = watch("quantity");
+
+
+
+
+
   const pizzaPrice = 80.50; // Pizza fiyatı
 
-
+  {/*Increase Quantity Function*/ }
   function increase() {
-    setFormData(prevState => ({
-      ...prevState,
-      quantity: prevState.quantity + 1
-    }));
+    setValue("quantity", quantity + 1);
   }
+
+  {/*Decrease Quantity Function*/ }
   function decrease() {
-    if (formData.quantity > 1) {
-      setFormData(prevState => ({
-        ...prevState,
-        quantity: prevState.quantity - 1
-      }));
-    }
+    if (quantity > 1) setValue("quantity", quantity - 1);
   }
 
-  function handleCheckboxChange(event) {
-    const { value, checked } = event.target;
-    let newList = [];
-    if (checked) {
-      // Eğer checkbox işaretlendiyse, malzemeyi ekle
-      newList = [...formData.toppings, value];
-    } else {
-      // Eğer checkbox işaret kaldırıldıysa, malzemeyi çıkar
-      newList = formData.toppings.filter(m => m !== value);
-    }
-
-    // Her malzeme için 5 TL ekle
-    setSelectedTotal(newList.length * 5);
-    setFormData(prevState => ({
-      ...prevState,
-      toppings: newList
-    }));
-
-
-  }
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  }
+  setSelectedTotal(toppings.length * 5);
 
   // Here we are handling the total price with using useEffect, useEffect will run whenever the quantity or selectedTotal changes.
+
   useEffect(() => {
     // Toplam fiyatı güncelle
-    const totalPrice = (pizzaPrice + selectedTotal) * formData.quantity;
+    const totalPrice = (pizzaPrice + selectedTotal) * quantity;
     setTotal(totalPrice);
-  }, [formData.quantity, selectedTotal]);
+  }, [quantity, selectedTotal]);
 
 
 
 
 
   return (
+
     <div className='container-siparis'>
       <PizzaHeader selectedProduct={selectedProduct} />
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(submitHandle)} className="order-form">
 
         <div className="choices">
-          <Size handleChange={handleChange} />
-          <Thickness handleChange={handleChange} />
+
+          <SizeChoices register={register} errors={errors} />
+          <Thickness register={register} errors={errors} />
         </div>
 
-        <Toppings formData={formData} handleCheckboxChange={handleCheckboxChange} />
-        <p style={{ color: 'red' }}>{formData.toppings.length < 4 ? 'En az 4 malzeme seçmelisiniz.' : ''}</p>
-        <p style={{ color: 'red' }}>{formData.toppings.length === 10 ? 'En fazla 10 malzeme seçebilirsiniz.' : ''}</p>
-        <OrderNote handleChange={handleChange} />
+        <Toppings register={register} errors={errors} toppings={toppings} />
+
+        <OrderNote register={register} />
 
         <hr></hr>
 
         <div className="order">
-          <QuantityOrder formData={formData} increase={increase} decrease={decrease} handleChange={handleChange} />
+
+          <div className="quantity-order">
+            <button type="button" onClick={decrease} >-</button>
+            <span>{quantity}</span>
+            <button type="button" onClick={increase} >+</button>
+          </div>
 
           <div className="summary-side">
 
             <Summary selectedTotal={selectedTotal} total={total} />
             <button className='order-button' type='submit'>Sipariş Ver</button>
-            <p>{JSON.stringify(formData)}</p>
+            <p>{JSON.stringify(formDataa)}</p>
 
           </div>
 
         </div>
+        <ToastContainer />
       </form>
     </div>
   );
