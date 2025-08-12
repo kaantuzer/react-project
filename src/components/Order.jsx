@@ -70,7 +70,7 @@ function Order({ total, setTotal, selectedTotal, setSelectedTotal, setSelectedPr
 
       <form onSubmit={handleSubmit(submitHandle)} className="order-form">
 
-        <div className="flex flex-col text-center items-center py-5 mb-5 lg:py-0 lg:mb-0 lg:flex-row lg:justify-between items-start">
+        <div className="flex flex-col text-center items-center py-5 mb-5 lg:py-0 lg:mb-0 lg:flex-row lg:justify-between ">
 
           <SizeChoices register={register} errors={errors} />
           <Thickness register={register} errors={errors} />

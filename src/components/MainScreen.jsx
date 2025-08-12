@@ -8,7 +8,7 @@ function Main(props) {
 
   return (
     <>
-      <main className="bg-[url('../public/home-banner.png')]  h-screen max-w-full bg-cover bg-center bg-fixed p-6 md:p-12 flex flex-col items-center justify-start text-center gap-2">
+      <main className="bg-[url('/home-banner.png')]  h-screen max-w-full bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed p-6 md:p-12 flex flex-col items-center justify-start text-center gap-2">
 
         <img src={reactLogo} className="w-60 md:w-80" alt="High logo" />
 
