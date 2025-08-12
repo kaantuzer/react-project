@@ -94,8 +94,8 @@ export const Pizzas = {
 export const CrustThickness = [
   { id: "1", value: "Ultra İnce" },
   { id: "2", value: "İnce" },
-  { id: "3", value: "Kalın" },
-  { id: "4", value: "Çıtır" },
+  { id: "3", value: "Orta" },
+  { id: "4", value: "Kalın" },
 ];
 
 export const Sizes = [

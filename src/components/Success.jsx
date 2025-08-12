@@ -14,7 +14,7 @@ function Success(props) {
       <p className='text-6xl font-extralight'>Sipariş Alındı</p>
       <hr className='w-[80%] md:w-[35%] mx-auto mb-8 mt-6 border-gray-200' />
       {/* <Summary formData={formData} total={total} selectedTotal={selectedTotal} /> */}
-      <h2 className='text-2xl'>{selectedProduct.name}</h2>
+      <h2 className='text-2xl'>{selectedProduct?.name ?? "Klasik Pizza"}</h2>
 
       <div className="font-semibold text-white border p-10 text-left w-full lg:w-[700px] mx-auto mt-5 rounded-lg">
 
